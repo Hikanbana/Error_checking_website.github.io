@@ -44,6 +44,8 @@
         </div>
 
         <p id="myParagraph">Message Display : </p>
+        <p>---------------------------------------------------------------------------------------------------------------</p>
+        <p id="myParagraph2">Message Display : </p>
     </header>
     <script>
         const thai = ['ก', 'ข', 'ค', 'ฆ', 'ง', 'จ', 'ฉ', 'ช', 'ซ', 'ญ', 'ฎ', 'ฏ', 'ฐ', 'ฑ', 'ฒ', 'ณ', 'ด', 'ต', 'ถ', 'ท', 'ธ', 'น', 'บ', 'ป', 'ผ', 'ฝ', 'พ', 'ฟ', 'ภ', 'ม', 'ย', 'ร', 'ล', 'ว', 'ศ', 'ษ', 'ส', 'ห', 'ฬ', 'อ', 'ฮ', 'ะ', 'า', 'ิ', 'ี', 'ื', 'ึ', 'ั', 'ำ', '่', '้', '็', '๋', '๊', 'ุ', 'ู', 'เ', 'แ', 'โ', 'ใ', 'ไ', '์', 'ฤ'];
@@ -929,6 +931,27 @@
                     var para = document.getElementById("myParagraph");
                     var span = document.createElement("span");
                     span.innerText = misse;
+                    para.appendChild(span);
+                }
+            });
+
+            var para = document.getElementById("myParagraph2");
+            para.innerHTML = "";
+            endmess.forEach(misse => {
+                if (misse.includes("ผิด_")) {
+                    n_misses.push(misse);
+                    var para = document.getElementById("myParagraph2");
+                    var span = document.createElement("span");
+                    span.className = "red-text";
+                    let messword = misse.split('_');
+                    span.innerText = "/" + messword[1] + "/";
+                    para.appendChild(span);
+                }
+                else {
+                    n_misses.push(misse);
+                    var para = document.getElementById("myParagraph2");
+                    var span = document.createElement("span");
+                    span.innerText = "/" + misse + "/";
                     para.appendChild(span);
                 }
             });
